@@ -1,4 +1,4 @@
-# BankingAPI
+# BlogPostApp
 
 blogPostApp is a Go application that implements simple blogging features
 
