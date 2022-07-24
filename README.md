@@ -4,7 +4,7 @@ BlogPostApp is a Go application that implements simple blogging features.
 
 The App uses in memory Redis database for storing the blog posts
 
-#Features
+## Features
 ```go
 1. Sign and Signout with session management
 
