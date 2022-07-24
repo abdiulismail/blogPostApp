@@ -1,14 +1,21 @@
 package handlers
 
 import (
-	"fmt"
+	"blog/config"
 	"net/http"
 )
 
-func MyHelloHandler(w http.ResponseWriter, r *http.Request){
-	fmt.Fprintf(w,"hello world")
+func IndexGetHandler(w http.ResponseWriter, r *http.Request) {
+
+	comments, err := config.Client.LRange(config.Ctx, "comments", 0, 100).Result()
+	config.CheckError(err)
+
+	_ = config.Templates.ExecuteTemplate(w, "index.html", comments)
 }
 
-func GoodBye(w http.ResponseWriter, r *http.Request){
-	fmt.Fprintf(w,"goodbye")
+func IndexPostHandler(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	comment := r.PostForm.Get("comment")
+	config.Client.LPush(config.Ctx, "comments", comment)
+	http.Redirect(w, r, "/", 302)
 }
