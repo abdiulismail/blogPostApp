@@ -21,6 +21,12 @@ func main() {
 
 	r := mux.NewRouter()
 
+	r.HandleFunc("/login", handlers.LoginGetHandler).Methods("GET")
+	r.HandleFunc("/login", handlers.LoginPostHandler).Methods("POST")
+
+	r.HandleFunc("/register", handlers.RegisterGetHandler).Methods("GET")
+	r.HandleFunc("/register", handlers.RegisterPostHandler).Methods("POST")
+
 	r.HandleFunc("/", handlers.IndexGetHandler).Methods("GET")
 	r.HandleFunc("/", handlers.IndexPostHandler).Methods("POST")
 

@@ -16,7 +16,9 @@ The App uses in memory Redis database for storing the blog posts
 
 5. Golang template demonstration including serving static files
 
-6. Error Handling , Middleware and so much more
+6. Bcrypt password Hashing
+
+7. Error Handling , Middleware and so much more
 
 ```
 
@@ -25,6 +27,10 @@ The App uses in memory Redis database for storing the blog posts
 [GorillaMux](https://github.com/gorilla/mux/)
 
 [Redis](https://redis.io/)
+
+[GorillaSessions](https://github.com/gorilla/sessions)
+
+[Bcrypt](https://pkg.go.dev/golang.org/x/crypto/bcrypt)
 
 
 ## License

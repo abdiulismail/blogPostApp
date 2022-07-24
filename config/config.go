@@ -3,9 +3,12 @@ package config
 import (
 	"context"
 	"github.com/go-redis/redis/v9"
+	"github.com/gorilla/sessions"
 	"html/template"
 	"log"
 )
+
+var Mysession = sessions.NewCookieStore([]byte("dhfkshgdfj"))
 
 var Templates *template.Template
 
