@@ -69,12 +69,14 @@
     <link href="/static/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    
+
 <main class="form-signin w-100 m-auto">
   <form method="post">
     <img class="mb-4" src="/static/img/blog.jpeg" alt="" width="150" height="100">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
+    {{ if . }}
+    <div class="alert alert-danger" role="alert">{{ . }}</div>
+    {{ end }}
     <div class="form-floating">
       <input name="username" type="text" class="form-control" id="floatingInput" placeholder="example" required>
       <label for="floatingInput">Username</label>

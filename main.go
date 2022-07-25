@@ -27,8 +27,8 @@ func main() {
 	r.HandleFunc("/register", handlers.RegisterGetHandler).Methods("GET")
 	r.HandleFunc("/register", handlers.RegisterPostHandler).Methods("POST")
 
-	r.HandleFunc("/", handlers.IndexGetHandler).Methods("GET")
-	r.HandleFunc("/", handlers.IndexPostHandler).Methods("POST")
+	r.HandleFunc("/", config.AuthRequired(handlers.IndexGetHandler)).Methods("GET")
+	r.HandleFunc("/", config.AuthRequired(handlers.IndexPostHandler)).Methods("POST")
 
 	//serve static files
 	fs := http.FileServer(http.Dir("./static/"))
