@@ -21,6 +21,7 @@ func main() {
 
 	r.HandleFunc("/login", routes.LoginGetHandler).Methods("GET")
 	r.HandleFunc("/login", routes.LoginPostHandler).Methods("POST")
+	r.HandleFunc("/logout", routes.LogoutPostHandler).Methods("GET")
 
 	r.HandleFunc("/register", routes.RegisterGetHandler).Methods("GET")
 	r.HandleFunc("/register", routes.RegisterPostHandler).Methods("POST")

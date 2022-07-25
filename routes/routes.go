@@ -3,6 +3,8 @@ package routes
 import (
 	"blog/config"
 	"blog/models"
+	"github.com/gorilla/sessions"
+	"log"
 	"net/http"
 )
 
@@ -32,6 +34,17 @@ func LoginPostHandler(w http.ResponseWriter, r *http.Request) {
 	session.Save(r, w)
 	http.Redirect(w, r, "/", 302)
 
+}
+
+func LogoutPostHandler(w http.ResponseWriter, r *http.Request) {
+	session, _ := config.Mysession.Get(r, "session")
+	session.Options.MaxAge = -1
+
+	if err := sessions.Save(r, w); err != nil {
+		log.Fatal("Error saving session: %v", err)
+	}
+
+	http.Redirect(w, r, "/login", 302)
 }
 
 func RegisterGetHandler(w http.ResponseWriter, r *http.Request) {
