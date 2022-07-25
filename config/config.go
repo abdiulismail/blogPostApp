@@ -2,7 +2,6 @@ package config
 
 import (
 	"context"
-	"github.com/go-redis/redis/v9"
 	"github.com/gorilla/sessions"
 	"html/template"
 	"log"
@@ -15,8 +14,6 @@ var Templates *template.Template
 
 var Port = ":8080"
 
-var Client *redis.Client
-
 var Ctx = context.TODO()
 
 func CheckError(e error) {
@@ -25,6 +22,7 @@ func CheckError(e error) {
 	}
 }
 
+//middleware
 func AuthRequired(h http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		session, _ := Mysession.Get(r, "session")
