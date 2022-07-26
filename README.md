@@ -33,6 +33,9 @@ The App uses in memory Redis database for storing the blog posts
 [Bcrypt](https://pkg.go.dev/golang.org/x/crypto/bcrypt)
 
 
+![alt text](https://github.com/abdiulismail/blogPostApp/blob/master/static/img/login.png)
+
+![alt text](https://github.com/abdiulismail/blogPostApp/blob/master/static/img/index.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
